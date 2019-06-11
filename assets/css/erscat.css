@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #444444;
+  background-color: #b78219;
+}
+
+h3 {
+  margin: 3px;
+  padding: 0;
+  border: 0;
+}
+
+h4 {
+  margin: 3px;
+  font-size: 35px;
+}
+
+/* STRUCTURE */
+
+#pagewrap {
+	padding: 3px;
+	width: 960px;
+}
+header {
+	height: 100px;
+	padding: 0 3px;
+}
+#content {
+	width: 590px;
+	float: left;
+	padding: 3px 1px;
+}
+
+footer {
+	clear: both;
+	padding: 0 15px;
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 1800px) {
+
+	#pagewrap {
+		width: 94%;
+	}
+	#content {
+		width: 51%;
+		padding: 1% 4%;
+	}
+
+	header, footer {
+		padding: 1% 4%;
+	}
+}
+
+/* for 700px or less */
+@media screen and (max-width: 1024px) {
+
+	#content {
+		width: auto;
+		float: none;
+	}
+
+}
+
+/* for 480px or less (hahahahahahaha!) */
+@media screen and (max-width: 1440px) {
+
+	header {
+		height: 300%;
+	}
+  form {
+    font-size: 2em;
+  }
+
+	h1 {
+		font-size: 3em;
+	}
+
+  input {
+    font-size: 0.85em;
+  }
+}
+
+
+#content {
+	background: #ffd88c;
+}
+
+header, #content {
+	margin-bottom: 5px;
+}
+
+header, #content, footer {
+	border: solid 1px #ccc;
+}

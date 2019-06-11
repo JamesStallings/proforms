@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <!-- body onLoad=jqueryCk(); -->
+  <body>
+    <main>
+      <div id="container">
+        <div id="pagewrap">
+          <header style="margin: 0; padding: 0; border: 0;">
+            <% include ../partials/header %>
+          </header>
+          <hr>
+          <section id="content">
+            <form id="xform" action="/bol/xformreflect" method="POST">
+              <fieldset class="credentials">
+            		<legend>origin</legend>
+            		<table>
+                  <tr>
+                    <td width=200>
+                      <label for="email" class="hover">email</label>
+                    </td>
+                    <td>
+                      <input type="email" name="email" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="opscenter" class="hover">Form Type</label>
+                    </td>
+                    <td>
+                      <select name="destination" style="height: 32px; width: 232px">
+                        <option id="destination" value="" disabled="disabled" selected="selected">select one</option>
+                        <option value="bol">BOL</option>
+                        <option value="uplift">Uplift</option>
+                        <option value="transfer">Transfer</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+              <br>
+              <fieldset>
+                <legend>payload</legend>
+                <table>
+                  <tr>
+                    <td width=200>
+                      <label for="custname" class="hover">Customer Name</label>
+                    </td>
+                    <td>
+                      <input type="text" name="custname" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="location" class="hover">Job Location</label>
+                    </td>
+                    <td>
+                      <input type="text" name="location" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="carrier" class="hover">Carrier</label>
+                    </td>
+                    <td>
+                      <input type="text" name="carrier" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+		    <td>Truck No.</td>
+                    <td>
+                      <select name="truckno1">>
+                        <option value="0">0</option>
+			                  <option value="1">1</option>
+			                  <option value="2">2</option>
+			                  <option value="3">3</option>
+			                  <option value="4">4</option>
+			                  <option value="5">5</option>
+			                  <option value="6">6</option>
+			                  <option value="7">7</option>
+			                  <option value="8">8</option>
+			                  <option value="9">9</option>
+		                  </select> of <select name="truckno2">>
+                        <option value="0">0</option>
+			                  <option value="1">1</option>
+			                  <option value="2">2</option>
+			                  <option value="3">3</option>
+			                  <option value="4">4</option>
+			                  <option value="5">5</option>
+			                  <option value="6">6</option>
+			                  <option value="7">7</option>
+			                  <option value="8">8</option>
+			                  <option value="9">9</option>
+		                  </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    </td>
+                    <td>
+                      <input type="checkbox" name="exchange" class="required text" style="height: 32px; width: 32px"/>
+                      <label for="exchange" class="hover">Check if Exchange</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="opscenter" class="hover">Record to Ops Center</label>
+                    </td>
+                    <td>
+                      <select name="opscenter" style="height: 32px; width: 232px">
+                        <option id="opscenter" value="" disabled="disabled" selected="selected">select one</option>
+                        <option value="houston_ops@ers-cat.com">Houston</option>
+                        <option value="beaumontops@ers-cat.com">Beaumont</option>
+                        <option value="gonzalesops@ers-cat.com">Gonzales</option>
+                        <option value="lakecharlesops@ers-cat.com">Lake Charles</option>
+                        <option value="bossierops@ers-cat.com">Bossier</option>
+                        <option value="nolaops@ers-cat.com">New Orleans</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+              <fieldset>
+                <legend>details</legend>
+                <table>
+                  <tr>
+                    <td width=10>
+                      Equip
+                    </td>
+                    <td width=10>
+                      ID
+                    </td>
+                    <td width=3>
+                      Qty
+                    </td>
+                    <td width=3>
+                      Hrs
+                    </td>
+                    <td width=7>
+                      Fuel
+                    </td>
+                    <td width=10>
+                      Rerent Vendor
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[0]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[0]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[0]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[0]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[0]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[0]" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[1]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[1]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[1]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[1]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[1]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[1]" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[2]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[2]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[2]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[2]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[2]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[2]" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[3]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[3]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[3]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[3]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[3]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[3]" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[4]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[4]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[4]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[4]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[4]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[4]" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[5]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[5]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[5]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[5]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[5]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[5]" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[6]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[6]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[6]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[6]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[6]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[6]" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[7]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[7]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[7]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[7]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[7]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[7]" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[8]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[8]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[8]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[8]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[8]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[8]" class="required text"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width=10>
+                      <input size=5 type="text" name="equip[9]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="idnum[9]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="qty[9]" class="required text"/>
+                    </td>
+                    <td width=3>
+                      <input size=2 type="text" name="hrs[9]" class="required text"/>
+                    </td>
+                    <td width=7>
+                      <input size=5 type="text" name="fuel[9]" class="required text"/>
+                    </td>
+                    <td width=10>
+                      <input size=5 type="text" name="rerent[9]" class="required text"/>
+                    </td>
+                  </tr>
+                </table>
+                <br>
+                <input type="hidden" name="apikey" value="10000-m4n14c5"/>
+                </fieldset>
+                <fieldset>
+                <legend>Notes</legend>
+                <table>
+                  <tr>
+                    <td><input type="text" name="notes1" size=47></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="notes2" size=47></td>
+                  </tr>
+                </table>
+                </fieldset>
+                <table>
+                  <tr>
+                    <td>
+                      <input type="submit" value="send" class="submit" style="height: 75px; width: 260px">
+                    </td>
+                    <td>
+                      <input type="reset" value="Reset" id="button" style="height: 75px; width: 260px">
+                    </td>
+                  </tr>
+                </table>
+            </form>
+          </section>
+          <hr>
+          <footer style="border: 0;">
+            <% include ../partials/footer %>
+          </footer>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

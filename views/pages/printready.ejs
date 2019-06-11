@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <!-- body onLoad=jqueryCk(); -->
+  <body>
+    <main>
+      <div id="container">
+        <div id="pagewrap">
+          <header style="margin: 0; padding: 0; border: 0;">
+            <% include ../partials/header %>
+          </header>
+          <hr>
+          <section id="content">
+            <font size=3><h2>Bill of Lading</h2></font>
+            <font size=2>Date/Time: <% var d=new Date(); fmtDate=(d.getMonth()+1)+"-"+d.getDate()+"-"+d.getFullYear()+" "+(d.getHours()-7)+":"+d.getMinutes() %><%= fmtDate %></font>
+            <hr />
+            <font size=3><h3>Origin of Record: </h3> <%= body.email %> </font>
+            <hr />
+            <font size=1>
+              <table border=0 cellpadding=1 cellspacing=1>
+                <tr>
+                  <td><h3>Form Type:</h3></td><td><%= body.destination %></td>
+                </tr>
+                <tr>
+                  <td><h3>Customer Name:</h3></td><td><%= body.custname %></td>
+                </tr>
+                <tr>
+                  <td><h3>Job Location:</h3></td><td><%= body.location %></td>
+                </tr>
+                <tr><td colspan=3><hr></td></tr>
+                <tr>
+                  <td><h3>Carrier:</h3></td><td><%= body.carrier %></td>
+                </tr>
+                <tr>
+                  <td><h3>Truck #</h3></td><td> <%= body.truckno1 %> of <%= body.truckno2 %></td>
+                </tr>
+                <tr>
+                  <td><h3>Exchange?</h3></td><td><% if(body.exchange) { %>
+                                           Yes
+                                         <% } else { %>
+                                           No
+                                      <% } %></td>
+                </tr>
+                <tr>
+                  <td><h3>Recording Ops Center:</h3></td><td><%= body.opscenter %></td>
+		</tr>
+              </table>
+              <hr />
+              <h3>Details</h3>
+              <table>
+                  <tr><td width=15></td><td width=135><h3>Equipment</h3></td><td><h3>ID</h3></td><td><h3>Qty</h3></td><td><h3>Hrs</h3></td><td><h3>Fuel</h3></td><td><h3>Re-Rent Vendor</h3></td></tr>
+                  <% for (var i = 0; i < 10; i++) { %>
+                    <tr>
+                      <td><%= i %>: </td><td><%= body.equip[i] %></td><td><%= body.idnum[i] %></td><td><%= body.qty[i] %></td><td><%= body.hrs[i] %></td><td><%= body.fuel[i] %></td><td><%= body.rerent[i] %></td>
+                    </tr>
+                  <% } %>
+               </table>
+               <table>
+                  <tr><td>Notes</td></tr>
+                  <tr><td><%= body.notes1 %></td></tr>
+                  <tr><td><%= body.notes2 %></td></tr>
+                  <tr>
+                    <td colspan=1><br>Driver Signature: __________________________________ </td><td> Customer Signature: __________________________________</td>
+                  </tr>
+                  <tr><td></td></tr>
+                  <tr>
+                    <td colspan=7><br>All rentals subject to Energy Rental Solutions Terms and Conditions which are located at http://www.ers-cat.com/rental-terms-conditions.html</td>
+                  </tr>
+              </table>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
